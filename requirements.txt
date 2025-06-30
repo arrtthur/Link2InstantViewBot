@@ -1,4 +1,4 @@
 python-telegram-bot
 beautifulsoup4
 requests
-python-telegraph
+python-telegraph-api
