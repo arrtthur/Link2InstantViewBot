@@ -32,7 +32,7 @@ def extract_from_www_jw_org(url: str):
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
         title = soup.find('h1').get_text(strip=True)
-        article_body = soup.find('div', class_='docClass-106')
+        article_body = soup.select_one('div[class^="docClass-"]')
         if not title or not article_body:
             return None, None
         content_html = ''.join(str(p) for p in article_body.find_all(['p', 'h2']))
