@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # --- FUNÇÕES DE EXTRAÇÃO ---
 def extract_from_www_jw_org(url: str):
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
         title = soup.find('h1').get_text(strip=True)
@@ -43,7 +43,7 @@ def extract_from_www_jw_org(url: str):
 
 def extract_from_wol_jw_org(url: str):
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
         title = soup.find('h1').get_text(strip=True)
